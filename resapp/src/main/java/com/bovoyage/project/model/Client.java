@@ -46,5 +46,8 @@ public void setFacture(Facture facture) {
 	this.facture = facture;
 }
 	
+public boolean payer() {
+	return true;
+}
 
 }

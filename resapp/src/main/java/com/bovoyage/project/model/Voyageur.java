@@ -12,11 +12,16 @@ public class Voyageur extends Personne {
   /**
    * Default constructor
    */
-	public Voyageur(Civilite civilite, String nom, String prenom, String email, int age, String pieceIdentite, Reservation reservation) {
+	public Voyageur(Civilite civilite, String nom, String prenom, String email, int age, String pieceIdentite) {
 		super(civilite, nom, prenom, email);
 		this.age = age;
 		this.pieceIdentite = pieceIdentite;
-		this.reservation = reservation;
+	}
+	
+	public Voyageur(Personne p, int age, String pieceIdentite) {
+		super(p.getCivilite(), p.getNom(), p.getPrenom(), p.getEmail());
+		this.age = age;
+		this.pieceIdentite = pieceIdentite;
 	}
 
 public int getAge() {

@@ -15,33 +15,22 @@ public class Reservation {
   private Client client;
   private Voyage voyage;
   private Assurance assurance;
+  private boolean isAssure;
   
-  private Scanner sc = new Scanner(System.in);
-  /**
-   * 
-   */
-  public enum Etat {
-	  enAttente,
-	  enCours, 
-	  refusee,
-	  acceptee;
-  }
   /**
    * Default constructor
    */
 
-  public Reservation(long numReservation, double prix, Set<Voyageur> voyageurs, Etat etatReservation, Client client,
-		Voyage voyage, Assurance assurance) {
+  public Reservation(Client client, Set<Voyageur> voyageurs, Voyage voyage, boolean isAssure) {
 	this.setNumReservation(++compteur);
-	this.setEtatReservation(Etat.enAttente);
+	this.setEtat(Etat.enAttente);
 	this.voyageurs = voyageurs;
 	this.client = client;
 	this.voyage = voyage;
-	this.assurance = assurance;
+	this.isAssure = isAssure;
+	if (isAssure) this.assurance = new AssuranceAnnulation();
 	this.setPrix();
-
 }
-
 
 public Client getClient() {
 	return client;
@@ -72,7 +61,7 @@ public void setClient(Client client) {
    * @param etatReservation
    */
   public void setEtat(Etat etatReservation) {
-	  this.setEtatReservation(etatReservation);
+	  this.etatReservation = etatReservation;
   }
   
   public Etat getEtat() {
@@ -88,7 +77,8 @@ public void setClient(Client client) {
   }
   
   public void setPrix() {
-	  this.prix = this.voyage.getPrix() * this.voyageurs.size() + this.assurance.getPrix();
+	  this.prix = this.voyage.getPrix() * this.voyageurs.size();
+	  if (this.isAssure) this.prix += this.assurance.getPrix();
   }
 
 
@@ -101,27 +91,5 @@ public void setNumReservation(long numReservation) {
 	this.numReservation = numReservation;
 }
 
-
-public Etat getEtatReservation() {
-	return etatReservation;
-}
-
-
-public void setEtatReservation(Etat etatReservation) {
-	this.etatReservation = etatReservation;
-}
-
-public void reserver(Client c) {
-	boolean isUser = false;
-	String user;
-	String password; 
-	while(!isUser) {
-		System.out.println("login:");
-		user = sc.nextLine();
-		System.out.println("password:");
-		password = sc.nextLine();
-		isUser = c.authentification(user, password);
-	}
-}
 
 }

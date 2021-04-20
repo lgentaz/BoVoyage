@@ -29,7 +29,7 @@ public class AgencesVoyagesServices {
 	}
   
 	public boolean reserver(Voyage Voyage) {
-	   return false;
+	   return true;
 	}
 
 	public Set<Voyage> getOffres() {

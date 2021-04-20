@@ -2,7 +2,7 @@ package com.bovoyage.project.service;
 
 import java.util.*;
 
-import com.bovoyage.project.model.Voyage;
+import com.bovoyage.project.domain.Voyage;
 
 /**
  * 

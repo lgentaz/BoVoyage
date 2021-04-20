@@ -1,9 +1,8 @@
-package com.bovoyage.project.model;
+package com.bovoyage.project.domain;
 
 import java.time.LocalDateTime;
-/**
- * 
- */
+
+
 public abstract class Prestation {
 
 	private LocalDateTime dateDepart;

@@ -1,6 +1,6 @@
 package com.bovoyage.project.service;
 
-import com.bovoyage.project.model.CB;
+import com.bovoyage.project.domain.CB;
 
 /**
  * 

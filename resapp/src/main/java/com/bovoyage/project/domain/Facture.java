@@ -1,4 +1,4 @@
-package com.bovoyage.project.model;
+package com.bovoyage.project.domain;
 
 /**
  * 

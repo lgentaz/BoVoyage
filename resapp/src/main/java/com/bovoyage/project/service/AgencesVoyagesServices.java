@@ -27,7 +27,6 @@ public class AgencesVoyagesServices {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
   
 	public boolean reserver(Voyage Voyage) {
 	   return false;

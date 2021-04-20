@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Client extends Personne {
 
-  private Set<Reservation> reservations;
+  private Set<Reservation> reservations = new HashSet<Reservation>();
   private MoyenPaiement moyenPaiement;
   private Facture facture;
   private static String userName = "client1";

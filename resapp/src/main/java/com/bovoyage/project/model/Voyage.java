@@ -16,32 +16,22 @@ public class Voyage {
 	 private ArrayList<Reservation> reservations;
 	 private Scanner sc = new Scanner(System.in);
 
-  /**
-   * Default constructor
-   */
-  public Voyage(double prix, Formule formule, Destination destination) {
-	  this.dispoStatus = true;
-	  this.prix = prix;
-	  this.setFormule(formule);
-	  this.setDestination(destination);
-	  this.setNumeroVoyage(++compteur);
-  }
 
-  /**
-   * @return
-   */
-  public double getPrix() {
-    // TODO implement here
-    return this.prix;
-  }
+	public Voyage(double prix, Formule formule, Destination destination) {
+		this.dispoStatus = true;
+		this.prix = prix;
+		this.setFormule(formule);
+		this.setDestination(destination);
+		this.setNumeroVoyage(++compteur);
+	}
 
-  /**
-   * @return
-   */
-  public boolean getStatus() {
-    // TODO implement here
-    return dispoStatus;
-  }
+	public double getPrix() {
+	    return this.prix;
+	}
+
+	public boolean getStatus() {
+	    return this.dispoStatus;
+	}
 
   /**
    * @param dispoStatus
@@ -118,15 +108,18 @@ public void reserver(Client c) throws Exception{
 		}
 		
 		Reservation reservation = new Reservation(c, voyageurs, this, isAssure);
-		this.reservations.add(reservation);
-		for (Voyageur v:voyageurs) {
-			v.setReservation(reservation);
-		}
 		
 		if (c.payer()) {
 			reservation.setEtat(Etat.enCours);
+			this.reservations.add(reservation);
+			for (Voyageur v:voyageurs) {
+				v.setReservation(reservation);
+			}
+			c.addReservation(reservation);
 		} else {
 			reservation.setEtat(Etat.refusee);
+			//destroy reservation
+			
 		}
 		
 	} else throw new Exception();

@@ -11,9 +11,9 @@ public class Assurance {
   /**
    * Default constructor
    */
-  public Assurance() {
-
-  }
+	public Assurance() {
+		  
+	}
 
   /**
    * @return

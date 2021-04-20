@@ -3,7 +3,7 @@ package com.bovoyage.project.model;
 /**
  * 
  */
-public class MoyenPaiement {
+public abstract class MoyenPaiement {
 
   /**
    * Default constructor

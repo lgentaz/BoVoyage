@@ -4,20 +4,17 @@ import java.time.LocalDateTime;
 /**
  * 
  */
-public class Prestation {
+public abstract class Prestation {
 
 	private LocalDateTime dateDepart;
 	private LocalDateTime dateArrivee;
 	private double prixHT;
 
-  /**
-   * Default constructor
-   */
-  public Prestation(LocalDateTime dateDepart, LocalDateTime dateArrivee, double prixHT) {
-	  this.setDateDepart(dateDepart);
-	  this.setDateArrivee(dateArrivee);
-	  this.setPrixHT(prixHT);
-  }
+	public Prestation(LocalDateTime dateDepart, LocalDateTime dateArrivee, double prixHT) {
+		this.setDateDepart(dateDepart);
+		this.setDateArrivee(dateArrivee);
+		this.setPrixHT(prixHT);
+	}
 
 	public LocalDateTime getDateDepart() {
 		return dateDepart;
